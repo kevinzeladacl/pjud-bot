@@ -15,15 +15,18 @@ cat << "EOF"
                                                                          
 ==========================================================================================
 
-SELECT A OPTION (enter number):
++
 
 ============LOCAL/DEV OPTIONS ==========
 
 999 - INSTALL PROJECT LOCAL
-
 0 - RUN WITH DEBUG CONSOLE (DEV)
 
+========================================
 
++
+
+SELECT A OPTION (enter number):
 
 EOF
 

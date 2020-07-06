@@ -25,19 +25,38 @@ async def hola(ctx):
 	await ctx.send('Bienvenid@  <@{0}> al Poder Judicial de COPETIADOS 3.0'.format(ctx.message.author.id))
 
 @bot.command()
-async def open(ctx,demandante,demandado):
-	causa = str(random.randint(00000, 99999))
-	m1 = 'Se ha habierto una nueva causa por <@{0}> '.format(ctx.message.author.id)
-	m2 = '''
-	========================
-	Causa Nº {0}
-	Demandante: {1}
-	Demandado: {2}
-	Status: Abierto
-	========================
+async def open(ctx,*args):
+	
+	data = args
+	demandante = ''
+	demandado = ''
 
-	'''.format(causa,demandante,demandado)
-	await ctx.send(m1 + m2)
+	
+	if len(data) == 0:
+		msj = '''
+		
+		:warning: Te falta ingresar el nombre del demandante y demandado :warning: 
+		``` pjud!open "nombre_demandante" "nombre_demandado" ``
+
+		'''
+		await ctx.send(msj)
+	if len(data) == 1:
+		demandante = data[0]
+		await ctx.send("Te falta ingresar el nombre del demandado")
+	else:
+		demandado = data[1]
+		causa = str(random.randint(00000, 99999))
+		m1 = ':briefcase: Se ha habierto una nueva causa por <@{0}> '.format(ctx.message.author.id)
+		m2 = '''
+		========================
+		Causa Nº {0}
+		Demandante: {1}
+		Demandado: {2}
+		Status: Abierto
+		========================
+
+		'''.format(causa,demandante,demandado)
+		await ctx.send(m1 + m2)
 
 
 @bot.command()
