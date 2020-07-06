@@ -1,9 +1,10 @@
 import discord
 import os
-from discord.ext import commands
 import random
 
-token = "NzI5NTU4MDA1NTkwNTIzOTE0.XwKsAw.uWLL0u0Fo0Z9TJsoLUVXRVFUwcw"
+from variables import token_discord 
+
+from discord.ext import commands
 
 
 bot = commands.Bot(command_prefix='pjud!')
