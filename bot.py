@@ -7,7 +7,7 @@ from variables import token_discord
 from discord.ext import commands
 
 
-bot = commands.Bot(command_prefix='pjud!')
+bot = commands.Bot(command_prefix='causa!')
 
 # @bot.command()
 # async def start(ctx):
@@ -25,7 +25,7 @@ async def hola(ctx):
 	await ctx.send('Bienvenid@  <@{0}> al Poder Judicial de COPETIADOS 3.0'.format(ctx.message.author.id))
 
 @bot.command()
-async def open(ctx,*args):
+async def abrir(ctx,*args):
 	
 	data = args
 	demandante = ''
@@ -60,7 +60,7 @@ async def open(ctx,*args):
 
 
 @bot.command()
-async def take(ctx,causa,abogado1):
+async def tomar(ctx,causa,abogado1):
 	demandante = "Alex Zeld"
 	demandado = "Pablo Escobar"
 	motivo = "Se definio que el acusado debera pagar $1.000.000 CLP al demandante"
@@ -111,7 +111,7 @@ async def auto(ctx,causa):
 
 
 @bot.command()
-async def close(ctx,causa):
+async def cerrar(ctx,causa):
 	demandante = "Alex Zeld"
 	demandado = "Pablo Escobar"
 	motivo = "Se definio que el acusado debera pagar $1.000.000 CLP al demandante"
@@ -135,7 +135,7 @@ async def close(ctx,causa):
 	await ctx.send(m1 + m2)
 
 @bot.command()
-async def search(ctx,causa):
+async def buscar(ctx,causa):
 	demandante = "Alex Zeld"
 	demandado = "Pablo Escobar"
 	motivo = "Se definio que el acusado debera pagar $1.000.000 CLP al demandante"
