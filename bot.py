@@ -25,137 +25,53 @@ async def hola(ctx):
 	await ctx.send('Bienvenid@  <@{0}> al Poder Judicial de COPETIADOS 3.0'.format(ctx.message.author.id))
 
 @bot.command()
-async def abrir(ctx,*args):
+async def archivar(ctx,*args):
 	
 	data = args
 	demandante = ''
 	demandado = ''
+	resultado = ''
+
 
 	
 	if len(data) == 0:
 		msj = '''
 		
 		:warning: Te falta ingresar el nombre del demandante y demandado :warning: 
-		``` pjud!open "nombre_demandante" "nombre_demandado" ``
+		``` causa!abrir "nombre_demandante" "nombre_demandado" "resultado" ```
 
 		'''
 		await ctx.send(msj)
 	if len(data) == 1:
 		demandante = data[0]
 		await ctx.send("Te falta ingresar el nombre del demandado")
-	else:
+
+	if len(data) == 2:
+		demandante = data[0]
 		demandado = data[1]
+		await ctx.send("Te falta ingresar el resultado de la causa")
+	else:
+		demandante = data[0]
+		demandado = data[1]
+		resultado = data[2]
 		causa = str(random.randint(00000, 99999))
-		m1 = ':briefcase: Se ha habierto una nueva causa por <@{0}> '.format(ctx.message.author.id)
+		m1 = ':briefcase: Se ha archivado una nueva causa por <@{0}> '.format(ctx.message.author.id)
 		m2 = '''
 		========================
 		Causa Nº {0}
 		Demandante: {1}
 		Demandado: {2}
-		Status: Abierto
+		=
+		Resultado
+		=
+		{3}
 		========================
 
-		'''.format(causa,demandante,demandado)
+		'''.format(causa,demandante,demandado,resultado)
 		await ctx.send(m1 + m2)
 
 
-@bot.command()
-async def tomar(ctx,causa,abogado1):
-	demandante = "Alex Zeld"
-	demandado = "Pablo Escobar"
-	motivo = "Se definio que el acusado debera pagar $1.000.000 CLP al demandante"
-	abogado1 = abogado1
-
-	m1 = '<@{0}> ha tomado el caso nº{1} '.format(ctx.message.author.id,causa)
-	m2 = '''
-	========================
-	Causa Nº {0}
-	Demandante: {1}
-	Demandado: {2}
-	Status: En Progreso
-
-	Abogado Demandante: {3}
-
-	========================
-
-	'''.format(causa,demandante,demandado,abogado1)
-	await ctx.send(m1 + m2)
-
-
-@bot.command()
-async def auto(ctx,causa):
-	abogado1 = "Mila Wallace"
-
-	resultado = random.randint(1, 100)
-
-	if resultado < 30:
-		resultado = "Se ha perdido el caso"
-
-	else:
-		resultado = "Se ha ganado el caso"
-
-	m2 = '''
-	========================
-	Causa Nº {0}
-	Abogado Demandante: {1} 
-	
-	========================
-	
-	Resultado automatico: ```{2}```
-
-	========================
-
-	'''.format(causa,abogado1,resultado)
-	await ctx.send(m2)
-
-
-
-@bot.command()
-async def cerrar(ctx,causa):
-	demandante = "Alex Zeld"
-	demandado = "Pablo Escobar"
-	motivo = "Se definio que el acusado debera pagar $1.000.000 CLP al demandante"
-	abogado1 = "Mila Wallace"
-
-	m1 = 'Se ha cerrado una nueva causa por <@{0}> '.format(ctx.message.author.id)
-	m2 = '''
-	========================
-	Causa Nº {0}
-	Demandante: {1}
-	Demandado: {2}
-	Status: Cerrado
-
-	Abogado Demandante: {3} 
-
-	Motivo: ```{4}```
-
-	========================
-
-	'''.format(causa,demandante,demandado,abogado1,motivo)
-	await ctx.send(m1 + m2)
-
-@bot.command()
-async def buscar(ctx,causa):
-	demandante = "Alex Zeld"
-	demandado = "Pablo Escobar"
-	motivo = "Se definio que el acusado debera pagar $1.000.000 CLP al demandante"
-	abogado1 = "Mila Wallace"
-
-	
-	m2 = '''
-	========================
-	Causa Nº {0}
-	Demandante: {1}
-	Demandado: {2}
-	Status: Cerrado
-
-	Abogado Demandante: {3} 
-
-	Motivo: ```{4}```
-	========================
-
-	'''.format(causa,demandante,demandado,abogado1,motivo)
-	await ctx.send(m2)
+ 
 
 
 bot.run(token_discord)

@@ -15,7 +15,10 @@ cat << "EOF"
                                                                          
 ==========================================================================================
 
-+
+=
+=
+=
+=
 
 ============LOCAL/DEV OPTIONS ==========
 
@@ -23,14 +26,11 @@ cat << "EOF"
 0 - RUN WITH DEBUG CONSOLE (DEV)
 
 ========================================
-
-+
-
 SELECT A OPTION (enter number):
-
+====
 EOF
-
 read option
+
 case $option in
   999) 
      echo "Installing now ..."
